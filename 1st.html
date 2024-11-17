@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office</title>
+    <style>
+        
+body {
+    font-family: sans-serif;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: aliceblue;
+}
+.conteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+img {
+    margin-top: 100px;
+    max-width: 30%;
+    height: auto;
+    box-shadow: 0 0 10px rgba(231, 114, 18, 0.952);
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.background-image {
+    background-image: url("https://avatars.mds.yandex.net/i?id=200ea15057ea1fb462e35f713a2aa3e9_l-5255455-images-thumbs&n=13"); 
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.category-item h2 {
+    margin-left: 700px;
+    margin-top: 5px;
+    position: flex;
+    width: 100%;
+    text-align: flex;
+    padding: 5px 0;
+}
+button {
+    background-color: #442f4d8a;
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 16px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    color: #000000;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+    box-shadow: 0 0 10px 2px rgba(255,255,255, 0.7);
+}
+
+h2 {
+    font-size: 20px;
+}
+
+p {
+    font-size: 15px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="background-image">
+        <div class="container">
+            <img src="https://avatars.mds.yandex.net/get-ydo/4219998/2a000001878b4cec97b6810fe9f04dcd5234/diploma" alt="изображение">
+            <h2>Microsoft Office</h2>
+            <p>Вы выбрали продукт компании Microsoft Office, после подтверждения вам будет выслан ключ на почту.</p>
+            <button onclick="window.location.href='index.html'">Подтвердить</button>
+        </div>
+    </div>
+</body>
+</html>

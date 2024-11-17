@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Александр Скворцов">
+        <title>Регистрация</title>
+        <style>
+            * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  sans-serif;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 0 10px;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+}
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("https://avatars.mds.yandex.net/i?id=200ea15057ea1fb462e35f713a2aa3e9_l-5255455-images-thumbs&n=13"), #000;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
+.wrapper {
+    width: 400px;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.wrapper:hover {
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.wrapper a:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #271930;
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 16px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    color: #000000;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+}
+
+.register {
+    text-align: center;
+    margin-top: 30px;
+    color: #ffffff;
+}
+
+.input-field {
+    position: relative;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    margin: 20px 0;
+}
+
+.input-field label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: #ffffff;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.input-field input {
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 0 10px;
+}
+
+.input-field input:focus~label,
+.input-field input:valid~label {
+    font-size: 0.9rem;
+    top: 10px;
+    transform: translateY(-150%);
+    color: #ffdde1;
+}
+
+.forget {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 25px 0 35px 0;
+    color: #ffffff;
+}
+
+#remember {
+    accent-color: #ffdde1;
+}
+
+.forget label {
+    display: flex;
+    align-items: center;
+}
+
+.forget label p {
+    margin-left: 8px;
+}
+
+.wrapper a {
+    color: #ffdde1;
+    text-decoration: none;
+}
+.dropdown {
+    border-radius: 10px;
+    position: absolute;
+    top: 0%;
+    right: 1820px;
+    background-color: transparent;
+  }
+.dropbtn {
+    background-color: transparent;
+    border-radius: 5px;
+    color: aliceblue;
+    width: 100px;
+    height: 50px;
+}
+
+  .dropdown-content {
+    border-radius: 10px;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    background-color: transparent;
+  }
+
+  .dropdown-content a {
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    border-radius: 10px;
+    background-color: #0c0d3b;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+    border-radius: 10px;
+  }
+
+  
+.wrapper.appear {
+  animation: fadeIn 1s ease-in-out forwards; /* Добавлена анимация плавного появления */
+}
+
+.input-field.focused label {
+  transform: translateY(-150%) scale(0.9); /* Изменено transform для лучшей анимации */
+  color: #ffdde1;
+}
+
+button.clicked {
+  background-color: #a9a9a9; /* Изменение цвета при нажатии */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Добавлено небольшое смещение сверху для эффекта */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.img {
+position: absolute;
+z-index: 1;
+top: 0px;
+right: 0px;
+transform: rotateY(180deg);
+}
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+// Анимация появления формы
+const wrapper = document.querySelector('.wrapper');
+wrapper.classList.add('appear');
+
+
+// Анимация для input-полей при фокусе (только смещение label)
+const inputFields = document.querySelectorAll('.input-field input');
+inputFields.forEach(input => {
+  input.addEventListener('focus', () => {
+    input.parentElement.classList.add('focused');
+    input.addEventListener('blur', () => {
+      input.parentElement.classList.remove('focused');
+    });
+  });
+});
+
+// Анимация кнопки при нажатии (изменение цвета)
+const button = document.querySelector('button[type="submit"]');
+button.addEventListener('mousedown', () => {
+  button.classList.add('clicked');
+});
+button.addEventListener('mouseup', () => {
+  button.classList.remove('clicked');
+});
+
+  //Анимация выпадающего меню (только показ/скрытие) - анимация уже в CSS
+});
+document.addEventListener('DOMContentLoaded', () => {
+  // ... ваш JavaScript код ...
+
+  // Обработчик клика по ссылке "Забыли пароль?"
+  const forgotPasswordLink = document.querySelector('.forget a');
+  forgotPasswordLink.addEventListener('click', (event) => {
+    event.preventDefault(); // Предотвращаем стандартное поведение ссылки
+    alert('Ссылка на востановление пароля отправлена на почту указаннаю в поле ввода почты.');
+  });
+});
+    </script>
+    </head>
+        <body>
+<img width="400px" class="img" src="https://imapo.ru/img/imgr2.png">
+            <div class="wrapper">
+                <form action="#">
+                    <h2>Вход</h2>
+                    <div class="input-field">
+                        <input type="text" required>
+                        <label>Введите почту</label>
+                    </div>
+            <div class="input-field">
+                <input type="password" required>
+                <label>Введите пароль</label>
+            </div>
+            <div class="forget">
+                <label for="remember">
+                    <input type="checkbox" id="remember">
+                    <p>Запомнить меня</p>
+                    </label>
+                    <a href="#"> Забыли пароль?</a>
+            </div>
+            <button type="submit"><a href=index.html>Войти</a></button>
+            <div class="register">
+                <p>Если нет аккаунта, регистрация пройдёт автоматически в соотвествии с введёнными данными </p>
+            </div>
+                </form>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Меню</button>
+                <div class="dropdown-content">
+                  <a href="Untitled-1.html">Вход</a>
+                  <a href="index.html">Продукция</a>
+                  <a href="help.html">Поддержка</a>
+                </div>
+              </div>
+        </body>
+</html>
